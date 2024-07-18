@@ -17,8 +17,8 @@ stages:
 
     - script: |
         echo '$(System.DefaultWorkingDirectory)'
-        echo $( variables.location )
-        echo $( variables.AllowedIPs )
+        echo $( location )
+        echo $( AllowedIPs )
         terraform --version
         terraform -chdir=deployments/centralus-3nic init
         terraform -chdir=deployments/centralus-3nic plan -out=tfplan 
