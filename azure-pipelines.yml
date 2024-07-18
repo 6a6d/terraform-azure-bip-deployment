@@ -16,7 +16,8 @@ stages:
         terraformVersion: 'latest'
 
     - script: |
+        echo  '$(System.DefaultWorkingDirectory)'
         terraform --version
-        terraform init -backend-config="storage_account_name=$(storageAccountName)" -backend-config="container_name=$(containerName)" -backend-config="key=$(key)" -backend-config="access_key=$(accessKey)"
-        terraform plan -out=tfplan
+        terraform init
+        terraform -chdir=deployments/centralus-3nic plan -out=tfplan
       displayName: 'Terraform Init and Plan'
