@@ -18,6 +18,6 @@ stages:
     - script: |
         echo  '$(System.DefaultWorkingDirectory)'
         terraform --version
-        terraform init
+        terraform -chdir=deployments/centralus-3nic init
         terraform -chdir=deployments/centralus-3nic plan -out=tfplan
       displayName: 'Terraform Init and Plan'
