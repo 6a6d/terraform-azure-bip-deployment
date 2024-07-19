@@ -22,9 +22,9 @@ stages:
         echo '$(System.DefaultWorkingDirectory)'
         echo $(location)
         echo $(AllowedIPs)
-        echo $(f5_public_key)
+        echo $(f5_ssh_publickey)
         echo $(testvar)
         terraform --version
         terraform -chdir=deployments/centralus-3nic init
-        terraform -chdir=deployments/centralus-3nic plan -var "location=$(location)" -var "AllowedIPs=$(AllowedIPs)" -var "f5_public_key=$(f5_public_key)" -out=tfplan
+        terraform -chdir=deployments/centralus-3nic plan -var "location=$(location)" -var "AllowedIPs=$(AllowedIPs)" -var "f5_ssh_publickey=$(f5_ssh_publickey)" -out=tfplan
       displayName: 'Terraform Init and Plan'
