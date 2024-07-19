@@ -1,0 +1,25 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+- stage: Plan
+  displayName: 'Terraform Plan'
+  jobs:
+  - job: TerraformPlan
+    displayName: 'Terraform Plan'
+    steps:
+    - task: TerraformInstaller@0
+      inputs:
+        terraformVersion: 'latest'
+
+    - script: |
+        echo '$(System.DefaultWorkingDirectory)'
+        echo $(location)
+        echo $(AllowedIPs)
+        terraform --version
+        terraform -chdir=deployments/centralus-3nic init
+        terraform -chdir=deployments/centralus-3nic plan -var "location=$(location)" -var "AllowedIPs=$(AllowedIPs)" -var "f5_public_key=$(f5_public_key)" -out=tfplan
+      displayName: 'Terraform Init and Plan'
