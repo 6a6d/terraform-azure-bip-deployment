@@ -25,6 +25,10 @@ variable "availabilityZones_public_ip" {
 
 variable "AllowedIPs" {}
 
+variable "f5_ssh_publickey" {
+  description = "public key to be used for ssh access to the VM. e.g. c:/home/id_rsa.pub"
+}
+
 variable "instance_count" {
   description = "Number of Bigip instances to create( From terraform 0.13, module supports count feature to spin mutliple instances )"
   type        = number
