@@ -23,6 +23,7 @@ stages:
         echo $(location)
         echo $(AllowedIPs)
         echo $(f5_public_key)
+        echo $(testvar)
         terraform --version
         terraform -chdir=deployments/centralus-3nic init
         terraform -chdir=deployments/centralus-3nic plan -var "location=$(location)" -var "AllowedIPs=$(AllowedIPs)" -var "f5_public_key=$(f5_public_key)" -out=tfplan
