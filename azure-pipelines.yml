@@ -4,6 +4,9 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+- group: tfvars
+
 stages:
 - stage: Plan
   displayName: 'Terraform Plan'
