@@ -18,12 +18,12 @@ stages:
       inputs:
         terraformVersion: 'latest'
 
+
     - script: |
         echo '$(System.DefaultWorkingDirectory)'
         echo $(location)
         echo $(AllowedIPs)
         echo $(f5_ssh_publickey)
-        echo $(testvar)
         terraform --version
         terraform -chdir=deployments/centralus-3nic init
         terraform -chdir=deployments/centralus-3nic plan -var "location=$(location)" -var "AllowedIPs=$(AllowedIPs)" -var "f5_ssh_publickey=$(f5_ssh_publickey)" -out=tfplan
