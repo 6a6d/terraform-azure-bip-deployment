@@ -21,7 +21,7 @@ exec 2>&1
 /usr/bin/setdb provision.extramb 1000
 /usr/bin/setdb restjavad.useextramb true
 
-curl -o /config/cloud/do_w_admin.json -s --fail --retry 60 -m 10 -L https://raw.githubusercontent.com/F5Networks/terraform-azure-bigip-module/main/config/onboard_do.json
+curl -o /config/cloud/do_w_admin.json -s --fail --retry 60 -m 10 -L https://raw.githubusercontent.com/6a6d/terraform-azure-bip-deployment/main/config/onboard_do.json
 
 
 ### write_files:
