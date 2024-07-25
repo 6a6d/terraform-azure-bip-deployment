@@ -19,19 +19,32 @@
             ],
             "timezone": "UTC"
         },
+        "myLicense": {
+            "class": "License",
+            "licenseType": "regKey",
+            "regKey": "{{{ REG_KEY }}}"
+        },
+        "myProvisioning": {
+            "class": "Provision",
+            "gtm": "nominal"
+        },
         "admin": {
             "class": "User",
             "userType": "regular",
             "password": "{{{ ADMIN_PASS }}}",
             "shell": "bash",
-            "keys": ["{{{ SSH_KEYS }}}"]
+            "keys": [
+                "{{{ SSH_KEYS }}}"
+            ]
         },
         "{{{ USER_NAME }}}": {
             "class": "User",
             "userType": "regular",
             "password": "{{{ ADMIN_PASS }}}",
             "shell": "bash",
-            "keys": ["{{{ SSH_KEYS }}}"],
+            "keys": [
+                "{{{ SSH_KEYS }}}"
+            ],
             "partitionAccess": {
                 "all-partitions": {
                     "role": "admin"

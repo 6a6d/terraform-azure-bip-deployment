@@ -1,6 +1,7 @@
 provider "azurerm" {
   //  version = "~>2.0"
   features {}
+  #subscription_id = "00000000-0000-0000-0000-000000000000"
 }
 
 #
@@ -22,8 +23,8 @@ resource "azurerm_ssh_public_key" "f5_key" {
   name                = format("%s-pubkey-%s", var.prefix, random_id.id.hex)
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
-  public_key          = var.f5_ssh_publickey
-  #public_key          = file("~/.ssh/id_rsa.pub")
+  #public_key          = var.f5_ssh_publickey
+  public_key = file("~/.ssh/id_rsa.pub")
 }
 
 #

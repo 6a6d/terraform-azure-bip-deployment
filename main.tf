@@ -463,6 +463,7 @@ resource "azurerm_linux_virtual_machine" "f5vm01" {
       bigip_username             = var.f5_username
       ssh_keypair                = var.f5_ssh_publickey
       bigip_password             = (length(var.f5_password) > 0 ? var.f5_password : random_string.password.result)
+      reg_key                    = var.f5_reg_key
   })))
   source_image_reference {
     offer     = var.f5_product_name

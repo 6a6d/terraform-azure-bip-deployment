@@ -1,7 +1,7 @@
 variable "prefix" {
   description = "Prefix for resources created by this module"
   type        = string
-  default     = "jmurray-centralus"
+  default     = "jm-centralus"
 }
 
 variable "location" {}

@@ -13,6 +13,11 @@ variable "f5_password" {
   default     = ""
 }
 
+variable "f5_reg_key" {
+  description = "BIG-IP license key"
+  default     = ""
+}
+
 variable "vm_name" {
   description = "Name of F5 BIGIP VM to be used,it should be unique `name`,default is empty string meaning module adds with prefix + random_id"
   default     = ""
@@ -109,8 +114,9 @@ variable "image_publisher" {
 }
 
 variable "f5_image_name" {
-  type        = string
-  default     = "f5-big-best-plus-hourly-25mbps"
+  type = string
+  #default     = "f5-big-best-plus-hourly-25mbps"
+  default     = "f5-big-ltm-2slot-byol"
   description = <<-EOD
 After finding the image to use with the Azure CLI with a variant of the following;
 
@@ -148,8 +154,9 @@ EOD
 }
 
 variable "f5_product_name" {
-  type        = string
-  default     = "f5-big-ip-best"
+  type = string
+  #default     = "f5-big-ip-best"
+  default     = "f5-big-ip-byol"
   description = <<-EOD
 After finding the image to use with the Azure CLI with a variant of the following;
 
