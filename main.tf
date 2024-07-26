@@ -163,7 +163,7 @@ locals {
     gateway       = join(".", concat(slice(split(".", local.gw_bytes_nic), 0, 3), [1]))
   }) : ""
 
-  clustermemberDO3 = local.total_nics >= 3 ? templatefile("${path.module}/bootstrap/onboard_do_3nic.json", {
+  clustermemberDO3 = local.total_nics >= 3 ? templatefile("${path.module}/bootstrap/onboard_do_3nic.tpl", {
     hostname      = length(local.mgmt_public_subnet_id) > 0 ? azurerm_public_ip.mgmt_public_ip[0].fqdn : azurerm_network_interface.mgmt_nic[0].private_ip_address
     name_servers  = join(",", formatlist("\"%s\"", ["169.254.169.253"]))
     search_domain = "f5.com"
@@ -173,6 +173,7 @@ locals {
     vlan-name2    = element(split("/", local.vlan_list[1]), length(split("/", local.vlan_list[1])) - 1)
     self-ip2      = local.selfip_list[1]
     gateway       = join(".", concat(slice(split(".", local.gw_bytes_nic), 0, 3), [1]))
+    reg_key       = "XSGMT-YIGUH-SLTPE-SFLLM-XKOLVXE"
   }) : ""
 
   tags = merge(var.tags, {
@@ -463,7 +464,6 @@ resource "azurerm_linux_virtual_machine" "f5vm01" {
       bigip_username             = var.f5_username
       ssh_keypair                = var.f5_ssh_publickey
       bigip_password             = (length(var.f5_password) > 0 ? var.f5_password : random_string.password.result)
-      reg_key                    = var.f5_reg_key
   })))
   source_image_reference {
     offer     = var.f5_product_name

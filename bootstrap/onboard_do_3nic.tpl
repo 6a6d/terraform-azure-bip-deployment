@@ -27,6 +27,11 @@
       ],
       "timezone": "UTC"
     },
+    "myLicense": {
+      "class": "License",
+      "licenseType": "regKey",
+      "regKey": "${reg_key}"
+    },
     "${vlan-name1}": {
       "class": "VLAN",
       "tag": 4093,

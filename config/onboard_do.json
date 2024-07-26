@@ -9,20 +9,17 @@
         "myDns": {
             "class": "DNS",
             "nameServers": [
-                "168.63.129.16"
+                "8.8.8.8"
             ]
         },
         "myNtp": {
             "class": "NTP",
             "servers": [
-                "0.pool.ntp.org"
+                "0.pool.ntp.org",
+                "1.pool.ntp.org",
+                "2.pool.ntp.org"
             ],
             "timezone": "UTC"
-        },
-        "myLicense": {
-            "class": "License",
-            "licenseType": "regKey",
-            "regKey": "{{{ REG_KEY }}}"
         },
         "myProvisioning": {
             "class": "Provision",

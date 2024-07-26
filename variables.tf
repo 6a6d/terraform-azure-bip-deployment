@@ -13,11 +13,6 @@ variable "f5_password" {
   default     = ""
 }
 
-variable "f5_reg_key" {
-  description = "BIG-IP license key"
-  default     = ""
-}
-
 variable "vm_name" {
   description = "Name of F5 BIGIP VM to be used,it should be unique `name`,default is empty string meaning module adds with prefix + random_id"
   default     = ""
